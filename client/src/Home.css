@@ -1,0 +1,50 @@
+/* Home.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.form-card {
+    background-color: #f0f0f0; /* Background color for the form card */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px; /* Add space between the form card and the thank you message */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Add space between form fields */
+}
+
+.form-control {
+    width: 100%; /* Make form controls full width */
+}
+
+.btn-primary {
+    margin-top: 20px; /* Add space between form and button */
+}
+
+.btn-primary,
+.btn-primary:hover {
+    background-color: #007bff; /* Change button color */
+    border-color: #007bff; /* Change button border color */
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Add focus style */
+}
+
+.btn-primary:active {
+    background-color: #0056b3; /* Change button color on click */
+    border-color: #004389; /* Change button border color on click */
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Add focus style */
+}
