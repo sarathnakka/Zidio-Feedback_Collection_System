@@ -1,54 +1,74 @@
-/* Reset default margin and padding */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
+  
 
-/* Body styles */
-body {
+  body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-}
+    background-color: #eef1f4;
+  }
+  
 
-/* Container styles */
-.login-container {
+  .login-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+
+  .left-section {
+    flex: 1;
+    background: linear-gradient(to right, purple, orange, blue);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
+    color: #ffffff;
+    padding: 20px;
+  }
+  
+  .left-section h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  
+  .right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
 
-/* Form container styles */
-.login-form {
-    background-color: #ffffff;
+  .login-form {
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     width: 400px;
-}
-
-/* Heading styles */
-.login-form h2 {
+  }
+  
+ 
+  .login-form h2 {
     margin-bottom: 20px;
     color: #333333;
-}
+  }
+  
 
-/* Input styles */
-.form-group {
+  .form-group {
     margin-bottom: 20px;
-}
-
-.form-control {
+  }
+  
+  .form-control {
     width: 100%;
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 5px;
     outline: none;
-}
-
-/* Button styles */
-.btn {
+  }
+  
+ 
+  .btn {
     width: 100%;
     padding: 10px;
     border: none;
@@ -56,26 +76,44 @@ body {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
-}
-
-.btn-success {
+  }
+  
+  .btn-success {
     background-color: #28a745;
     color: #ffffff;
-}
-
-.btn-success:hover {
+  }
+  
+  .btn-success:hover {
     background-color: #218838;
-}
+  }
+  
 
-/* Link styles */
-.link {
-    display: block;
-    text-align: center;
-    color: #333333;
+  .link {
+    color: #007bff;
     text-decoration: none;
-    margin-top: 10px;
-}
-
-.link:hover {
+  }
+  
+  .link:hover {
     text-decoration: underline;
-}
+  }
+  
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    .login-container {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .left-section {
+      padding: 40px 20px;
+    }
+  
+    .right-section {
+      padding: 20px;
+    }
+  
+    .login-form {
+      width: 100%;
+      max-width: 400px;
+    }
+  }

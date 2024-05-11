@@ -1,0 +1,46 @@
+body {
+    background: linear-gradient(to right, rgb(212, 91, 139), rgb(75, 67, 90));
+  }
+  
+  .options-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+  
+  .main-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .role-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .role-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .student-card {
+    background-color: #e0f7fa; 
+  }
+  
+  .teacher-card {
+    background-color: #fff9c4; 
+  }
+  
+  .btn {
+    margin-top: 10px;
+  }

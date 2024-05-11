@@ -1,50 +1,119 @@
-/* Home.css */
 
-.home-container {
+.landing-page {
+    background: linear-gradient(to right, rgb(219, 85, 138), rgb(41, 39, 37));
+    min-height: 100vh;
+    color: white;
+  }
+  
+  .header {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .logo h1 {
+    margin: 0;
+  }
+  
+  .menu-icon img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .header-menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .header-menu li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .hero-section {
+    display: flex;
     justify-content: center;
-    height: 100vh;
+    align-items: center;
+    height: calc(100vh - 80px);
     text-align: center;
-}
-
-.form-card {
-    background-color: #f0f0f0; /* Background color for the form card */
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px; /* Add space between the form card and the thank you message */
-}
-
-.form-group {
-    margin-bottom: 15px; /* Add space between form fields */
-}
-
-.form-control {
-    width: 100%; /* Make form controls full width */
-}
-
-.btn-primary {
-    margin-top: 20px; /* Add space between form and button */
-}
-
-.btn-primary,
-.btn-primary:hover {
-    background-color: #007bff; /* Change button color */
-    border-color: #007bff; /* Change button border color */
-}
-
-.btn-primary:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Add focus style */
-}
-
-.btn-primary:active {
-    background-color: #0056b3; /* Change button color on click */
-    border-color: #004389; /* Change button border color on click */
-}
-
-.btn-primary:focus,
-.btn-primary.focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Add focus style */
-}
+  }
+  
+  .hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #e67e22;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #d35400;
+  }
+  
+  .mobile-menu {
+    list-style: none;
+    padding: 0;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  
+  .mobile-menu li {
+    padding: 1rem;
+  }
+  
+  .mobile-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  /* Media queries for mobile responsiveness */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.5rem;
+    }
+  
+    .logo h1 {
+      margin-bottom: 0.5rem;
+    }
+  
+    .header-menu {
+      display: none;
+    }
+  
+    .hero-section {
+      height: calc(100vh - 120px);
+    }
+  
+    .hero-content h2 {
+      font-size: 2rem;
+    }
+  
+    .hero-content p {
+      font-size: 1rem;
+    }
+  }

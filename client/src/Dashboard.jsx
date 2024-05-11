@@ -13,7 +13,7 @@ function Dashboard() {
             if(res.data === "Success") {
                 setSuc("Successded OK")
             } else {
-                navigate('/')
+                navigate('/options')
             }
         }).catch(err => console.log(err))
     }, [])
