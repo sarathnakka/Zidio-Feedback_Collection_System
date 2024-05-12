@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import Bars from './bars.svg'; // Import the menu icon
 
+
 function Home() {
   const mobile = window.innerWidth <= 768 ? true : false;
   const [menuOpened, setMenuOpened] = useState(false);
@@ -13,6 +14,7 @@ function Home() {
         <div className="logo">
           <h1>Feedback System</h1>
         </div>
+
         {mobile && (
           <div className="menu-icon" onClick={() => setMenuOpened(!menuOpened)}>
             <img src={Bars} alt="Menu" />
@@ -29,7 +31,7 @@ function Home() {
           </ul>
         )}
       </header>
-
+        
       <div className="hero-section">
         <div className="hero-content">
           <h2>Unleash the Power of Feedback</h2>
@@ -39,6 +41,7 @@ function Home() {
           </Link>
         </div>
       </div>
+      
 
       {mobile && menuOpened && (
         <ul className="mobile-menu">

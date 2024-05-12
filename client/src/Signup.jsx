@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css'; 
+import web from "../src/assets/love.gif";
 
 function Signup() {
     const [name, setName] = useState("");
@@ -21,8 +22,11 @@ function Signup() {
     return (
         <div className="signup-container">
             <div className="left-section">
-                <h2>Signup animations should be placed here</h2>
-                {/* We can Add colorful abstract background design here */}
+                
+                <div className="col-lg-6 order-1 mt-5 header-image">
+      <img src={web} className="img-fluid animated" alt="home img"/>
+ </div>
+                
                 {/* we can use CSS or SVG for the abstract background */}
             </div>
             <div className="right-section">
