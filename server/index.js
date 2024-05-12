@@ -5,6 +5,8 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const UserModel = require('./models/User')
+const FeedbackModel = require('./models/feedback');
+
 
 const app = express()
 app.use(express.json())
@@ -71,7 +73,22 @@ app.post('/login', (req, res) => {
     })
 })
 
+app.post('/submit-feedback', (req, res) => {
+    const { teacherName, rating, review } = req.body;
+    
+    const newFeedback = new FeedbackModel({
+        teacherName,
+        rating,
+        review
+    });
+    
+    newFeedback.save()
+        .then(() => res.status(200).json({ message: 'Feedback submitted successfully' }))
+        .catch(err => res.status(500).json({ error: err.message }));
+});
 
+
+const PORT = process.env.PORT || 3001;
 app.listen(3001, () => {
     console.log("Server is Running")
 })

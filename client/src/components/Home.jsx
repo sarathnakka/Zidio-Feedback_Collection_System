@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import Bars from './bars.svg'; // Import the menu icon
+// import Bars from '..assets/bars.svg'; 
 
 
 function Home() {
@@ -17,7 +17,7 @@ function Home() {
 
         {mobile && (
           <div className="menu-icon" onClick={() => setMenuOpened(!menuOpened)}>
-            <img src={Bars} alt="Menu" />
+            
           </div>
         )}
         {!mobile && (

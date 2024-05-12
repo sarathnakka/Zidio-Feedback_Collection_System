@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Student.css'; 
+import axios from 'axios';
 
 function Student() {
     const [feedback, setFeedback] = useState({
@@ -18,38 +17,16 @@ function Student() {
         }));
     };
 
-    const handleRatingChange = (index) => {
-        setFeedback(prevState => ({
-            ...prevState,
-            rating: index + 1
-        }));
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(feedback);
-        setFeedback({
-            teacherName: '',
-            rating: 0,
-            review: ''
-        });
-        setSubmitted(true);
-    };
-
-    const renderStars = () => {
-        const stars = [];
-        for (let i = 0; i < 5; i++) {
-            stars.push(
-                <span
-                    key={i}
-                    className={i < feedback.rating ? "star gold" : "star"}
-                    onClick={() => handleRatingChange(i)}
-                >
-                    &#9733;
-                </span>
-            );
-        }
-        return stars;
+        axios.post('http://localhost:3001/submit-feedback', feedback)
+            .then(response => {
+                console.log(response.data);
+                setSubmitted(true);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
     };
 
     return ( 
@@ -57,7 +34,7 @@ function Student() {
             {submitted ? (
                 <>
                     <h2>Thank you for your review!</h2>
-                    <Link to="/" className="btn btn-primary mt-3">Logout</Link>
+                    <button onClick={() => setSubmitted(false)}>Submit Another Feedback</button>
                 </>
             ) : (
                 <>
@@ -83,9 +60,16 @@ function Student() {
                             </div>
                             <div className="form-group">
                                 <label>Rating:</label>
-                                <div className="star-rating">
-                                    {renderStars()}
-                                </div>
+                                <input
+                                    type="number"
+                                    name="rating"
+                                    value={feedback.rating}
+                                    onChange={handleChange}
+                                    className="form-control"
+                                    min="1"
+                                    max="5" // Update to 5 stars
+                                    required
+                                />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="review">Review:</label>
