@@ -1,0 +1,16 @@
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .welcome-message {
+    text-align: center;
+  }
+  
+  .welcome-message h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

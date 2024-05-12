@@ -26,7 +26,7 @@ function Login() {
             </div>
             <div className="right-section">
                 <div className="login-form">
-                    <h2>Signin here</h2>
+                    <h2>Signin </h2>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
