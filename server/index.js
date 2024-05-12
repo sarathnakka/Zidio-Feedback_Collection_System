@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const UserModel = require('./models/User')
 const FeedbackModel = require('./models/feedback');
+const TeacherFeedbackModel = require('./models/teacherFeedback');
 
 
 const app = express()
@@ -87,8 +88,27 @@ app.post('/submit-feedback', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
+app.post('/submit-teacher-feedback', (req, res) => {
+    const { studentName, section, rating, review } = req.body;
+  
+    const newTeacherFeedback = new TeacherFeedbackModel({
+      studentName,
+      section,
+    //   rating,
+      review
+    });
+  
+    newTeacherFeedback.save()
+      .then(() => res.status(200).json({ message: 'Teacher feedback submitted successfully' }))
+      .catch(err => res.status(500).json({ error: err.message }));
+  });
+
+  app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
 const PORT = process.env.PORT || 3001;
-app.listen(3001, () => {
-    console.log("Server is Running")
-})
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});

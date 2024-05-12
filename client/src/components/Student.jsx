@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Student.css';
 
 function Student() {
     const [feedback, setFeedback] = useState({
@@ -33,8 +34,8 @@ function Student() {
         <div className="home-container">
             {submitted ? (
                 <>
-                    <h2>Thank you for your review!</h2>
-                    <button onClick={() => setSubmitted(false)}>Submit Another Feedback</button>
+                <h2>Thank you for your review!</h2>
+                <Link to="/" className="btn btn-primary mt-3">Logout</Link>
                 </>
             ) : (
                 <>
