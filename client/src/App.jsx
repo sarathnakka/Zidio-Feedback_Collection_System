@@ -1,11 +1,11 @@
-import Login from "./Login"
-import Signup from "./Signup"
+import Login from "./components/Login"
+import Signup from "./components/Signup"
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Dashboard from './Dashboard'
-import Options from "./Options"
-import Home from './Home'
-import Student from './Student'
-import Teacher from './Teacher'
+import Dashboard from './components/Dashboard'
+import Options from "./components/Options"
+import Home from './components/Home'
+import Student from './components/Student'
+import Teacher from './components/Teacher'
 
 function App() {
 
