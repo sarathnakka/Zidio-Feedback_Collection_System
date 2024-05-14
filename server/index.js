@@ -8,7 +8,6 @@ const UserModel = require('./models/User')
 const FeedbackModel = require('./models/feedback');
 const TeacherFeedbackModel = require('./models/teacherFeedback');
 
-
 const app = express()
 app.use(express.json())
 app.use(cors({
@@ -18,28 +17,28 @@ app.use(cors({
 }))
 app.use(cookieParser())
 
-mongoose.connect('mongodb://127.0.0.1:27017/employee');
+mongoose.connect('mongodb://127.0.0.1:27017/feedbacksystem');
 
-const varifyUser = (req, res, next) => {
-    const token = req.cookies.token;
-    if(!token) {
-        return res.json("Token is missing")
-    } else {
-        jwt.verify(token, "jwt-secret-key", (err, decoded) => {
-            if(err) {
-                return res.json("Error with token")
-            } else {
-                if(decoded.role === "admin") {
-                    next()
-                } else {
-                    return res.json("not admin")
-                }
-            }
-        })
-    }
-}
+// const varifyUser = (req, res, next) => {
+//     const token = req.cookies.token;
+//     if(!token) {
+//         return res.status(401).json({ error: 'Token is missing' });
+//     } else {
+//         jwt.verify(token, "jwt-secret-key", (err, decoded) => {
+//             if(err) {
+//                 return res.status(403).json({ error: 'Invalid token' });
+//             } else {
+//                 if(decoded.role === "admin") {
+//                     next()
+//                 } else {
+//                     return res.status(403).json({ error: 'Not authorized' });
+//                 }
+//             }
+//         })
+//     }
+// }
 
-app.get('/dashboard',varifyUser ,(req, res) => {
+app.get('/dashboard',  (req, res) => {
     res.json("Success")
 })
 
@@ -62,7 +61,7 @@ app.post('/login', (req, res) => {
                 if(response) {
                   const token = jwt.sign({email: user.email, role: user.role},
                         "jwt-secret-key", {expiresIn: '1d'})  
-                    res.cookie('token', token)
+                    res.cookie('token', token, { httpOnly: true, sameSite: 'strict' })
                     return res.json({Status: "Success", role: user.role})
                 }else {
                     return res.json("The password is incorrect")
@@ -94,7 +93,6 @@ app.post('/submit-teacher-feedback', (req, res) => {
     const newTeacherFeedback = new TeacherFeedbackModel({
       studentName,
       section,
-    //   rating,
       review
     });
   
@@ -103,12 +101,39 @@ app.post('/submit-teacher-feedback', (req, res) => {
       .catch(err => res.status(500).json({ error: err.message }));
   });
 
-  app.use((err, req, res, next) => {
+app.get('/users',  async (req, res) => {
+  try {
+    const users = await UserModel.find();
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/feedbacks',  async (req, res) => {
+  try {
+    const feedbacks = await FeedbackModel.find();
+    res.json(feedbacks);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/teacher-feedbacks',  async (req, res) => {
+  try {
+    const teacherFeedbacks = await TeacherFeedbackModel.find();
+    res.json(teacherFeedbacks);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');
 });
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running `);
 });

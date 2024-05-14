@@ -38,7 +38,7 @@ function Teacher() {
   return (
     <div className="home-container">
       {submitted ? (
-        <>
+        <> 
           <h2>Thank you for your review!</h2>
           <Link to="/" className="btn btn-primary mt-3">Logout</Link>
         </>

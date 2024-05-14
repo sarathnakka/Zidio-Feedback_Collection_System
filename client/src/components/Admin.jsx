@@ -19,7 +19,7 @@ function Admin() {
   return (
     <div className="login-container">
     <div className="left-section">
-        <h2>Login animations should be placed here</h2>
+        <h2>Admin animations should be placed here</h2>
         {/* We can Add colorful abstract background design here */}
         {/* we can use CSS or SVG for the abstract background */}
     </div>

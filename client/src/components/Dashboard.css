@@ -1,16 +1,40 @@
 .dashboard-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .welcome-message {
-    text-align: center;
-  }
-  
-  .welcome-message h2 {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f0f0f0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background-color: #ccc;
+}
+
+.content {
+  flex: 1;
+}
+
+.content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.content ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.content ul li:last-child {
+  border-bottom: none;
+}
