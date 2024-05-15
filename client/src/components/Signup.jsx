@@ -36,29 +36,32 @@ function Signup() {
             <div className="right-section">
             <div className="right-section-corner">
         <div className="btn-wrapper">
-            <Link to="/admin" className="btn btn-outline-primary">
+            <Link to="/admin" className="btn btn-outline-warning">
                 <FontAwesomeIcon icon={faUser} /> Admin
             </Link>
         </div>
+        &nbsp; &nbsp;
         <div className="btn-wrapper">
-            <Link to="/" className="btn btn-outline-primary">
+            <Link to="/" className="btn btn-outline-info">
                 <FontAwesomeIcon icon={faHome} /> Home
             </Link>
         </div>
     </div>
-                <div className="signup-form">
-                    <h2>Create your Account</h2>
+                <div className="signup-form"><br />
+                    <h2>Create Your Account</h2>
                     
                     <div className="social-login">
-                    <button className="btn btn-google">
+                    <button className="btn btn-outline-danger btn-google">
                         <FontAwesomeIcon icon={faGoogle} /> Sign in with Google
                     </button>
-                    <button className="btn btn-facebook">
+                    &nbsp;
+                    <button className="btn btn-outline-primary btn-facebook">
                         <FontAwesomeIcon icon={faFacebook} /> Sign in with Facebook
                     </button>
                   </div>
                     
                     <p className="or-text">or Sign in using your email address</p>
+                    <hr></hr>
 
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
