@@ -5,7 +5,8 @@ import '../components/Signup.css';
 import web from "../../src/images/love.gif";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -34,9 +35,17 @@ function Signup() {
             </div>
             <div className="right-section">
             <div className="right-section-corner">
+        <div className="btn-wrapper">
+            <Link to="/admin" className="btn btn-outline-primary">
+                <FontAwesomeIcon icon={faUser} /> Admin
+            </Link>
+        </div>
+        <div className="btn-wrapper">
             <Link to="/" className="btn btn-outline-primary">
-            <FontAwesomeIcon icon={faHome} /> Home
-        </Link></div>
+                <FontAwesomeIcon icon={faHome} /> Home
+            </Link>
+        </div>
+    </div>
                 <div className="signup-form">
                     <h2>Create your Account</h2>
                     

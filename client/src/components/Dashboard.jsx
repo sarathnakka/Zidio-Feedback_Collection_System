@@ -6,7 +6,7 @@ function Dashboard() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [category, setCategory] = useState('users'); // Default category is 'users'
+  const [category, setCategory] = useState('users'); 
 
   const fetchData = async (category) => {
     setLoading(true);
@@ -14,7 +14,7 @@ function Dashboard() {
       const response = await axios.get(`http://localhost:3001/${category}`);
       setData(response.data);
       setLoading(false);
-      setCategory(category); // Update the category state
+      setCategory(category); 
     } catch (error) {
       setError(error.message);
       setLoading(false);
