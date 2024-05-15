@@ -31,7 +31,9 @@ function Dashboard() {
         <ul>
           <li onClick={() => fetchData('users')}>Users</li>
           <li onClick={() => fetchData('feedbacks')}>One Month Team</li>
+          <li onClick={() => fetchData('twomonths-feedback')}>Two Month's Team</li> 
           <li onClick={() => fetchData('teacher-feedbacks')}>Three Month's Team</li>
+      
         </ul>
       </div>
       <div className="content">
@@ -46,8 +48,8 @@ function Dashboard() {
           <ul>
             {data.map((item, index) => (
               <li key={index}>
-                {/* Updated content based on the selected category */}
-                {category === 'feedbacks' ? (
+          
+                {category === 'feedbacks' || category === 'teacher-feedbacks' || category === 'twomonths-feedback' ? (
                   <>
                     <div>Applicant Name: {item.applicantName}</div>
                     <div>Batch Number: {item.batchNumber}</div>
@@ -56,15 +58,6 @@ function Dashboard() {
                     <div>Improvement: {item.improvement.join(', ')}</div>
                     <div>Suggestions: {item.suggestions}</div>
                   </>
-                ) : category === 'teacher-feedbacks' ? (
-                  <>
-    <div>Applicant Name: {item.applicantName}</div>
-    <div>Batch Number: {item.batchNumber}</div>
-    <div>Project Name: {item.projectName}</div>
-    <div>Satisfaction: {item.satisfaction}</div>
-    <div>Improvement: {item.improvement.join(', ')}</div>
-    <div>Suggestions: {item.suggestions}</div>
-  </>
                 ) : (
                   <>
                     <div>ID: {item._id}</div>

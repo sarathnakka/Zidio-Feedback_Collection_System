@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser')
 const UserModel = require('./models/User')
 const FeedbackModel = require('./models/feedback');
 const TeacherFeedbackModel = require('./models/teacherFeedback');
+const TwoMonthsFeedbackModel = require('./models/TwoMonthsFeedback');
 
 
 const app = express()
@@ -87,7 +88,7 @@ app.post('/submit-feedback', (req, res) => {
   });
   
   newFeedback.save()
-      .then(() => res.status(200).json({ message: 'Feedback submitted successfully' }))
+      .then(() => res.status(200).json({ message: 'One months Feedback submitted successfully' }))
       .catch(err => res.status(500).json({ error: err.message }));
 });
 
@@ -105,7 +106,24 @@ app.post('/submit-teacher-feedback', (req, res) => {
   });
 
   newTeacherFeedback.save()
-    .then(() => res.status(200).json({ message: 'Teacher feedback submitted successfully' }))
+    .then(() => res.status(200).json({ message: 'Three months feedback submitted successfully' }))
+    .catch(err => res.status(500).json({ error: err.message }));
+});
+
+app.post('/submit-twomonths-feedback', (req, res) => {
+  const { applicantName, batchNumber, projectName, satisfaction, improvement, suggestions } = req.body;
+  
+  const newFeedback = new TwoMonthsFeedbackModel({
+    applicantName,
+    batchNumber,
+    projectName,
+    satisfaction,
+    improvement,
+    suggestions
+  });
+  
+  newFeedback.save()
+    .then(() => res.status(200).json({ message: 'Two months feedback submitted successfully' }))
     .catch(err => res.status(500).json({ error: err.message }));
 });
 
@@ -156,7 +174,14 @@ app.get('/teacher-feedbacks',  async (req, res) => {
   }
 });
 
-
+app.get('/twomonths-feedback', async (req, res) => { 
+  try {
+    const twoMonthsFeedbacks = await TwoMonthsFeedbackModel.find();
+    res.json(twoMonthsFeedbacks);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 
 app.use((err, req, res, next) => {
