@@ -192,7 +192,7 @@ function Home() {
                         <h1>
                           You Can <br />
                           Share Your Experience <br />
-                          With Us!
+                          With Zidio!
                         </h1>
                         <p>
                          
@@ -200,6 +200,9 @@ function Home() {
                         <div className="btn-box">
                           <a href="#about_section layout_padding" className="btn-1">
                             About Us
+                          </a> &nbsp; 
+                          <a href="/login" className="btn-2">
+                            Start
                           </a>                         
                         </div>
                       </div>
