@@ -5,18 +5,32 @@ import './Student.css';
 
 function Student() {
     const [feedback, setFeedback] = useState({
-        teacherName: '',
-        rating: 0,
-        review: ''
+        applicantName: '',
+        batchNumber: '',
+        projectName: '',
+        satisfaction: '',
+        improvement: [],
+        suggestions: ''
     });
     const [submitted, setSubmitted] = useState(false);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFeedback(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
+        const { name, value, type } = e.target;
+
+        if (type === 'checkbox') {
+            const isChecked = e.target.checked;
+            setFeedback(prevState => ({
+                ...prevState,
+                improvement: isChecked
+                    ? [...prevState.improvement, value]
+                    : prevState.improvement.filter(item => item !== value)
+            }));
+        } else {
+            setFeedback(prevState => ({
+                ...prevState,
+                [name]: value
+            }));
+        }
     };
 
     const handleSubmit = (e) => {
@@ -44,43 +58,101 @@ function Student() {
                     <div className="form-card">
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
-                                <label htmlFor="teacherName">Teacher :</label>
-                                <select
-                                    name="teacherName"
-                                    value={feedback.teacherName}
-                                    onChange={handleChange}
-                                    className="form-control"
-                                    required
-                                >
-                                    <option value="">Select Teacher</option>
-                                    <option value="Sarath">Sarath</option>
-                                    <option value="Bhavesh">Bhavesh</option>
-                                    <option value="muntaha">muntaha</option>
-                                    <option value="saloni">saloni</option>
-                                    <option value="reddy">reddy</option>
-                                </select>
-                            </div>
-                            <div className="form-group">
-                                <label>Rating:</label>
+                                <label htmlFor="applicantName">Applicant Name:</label>
                                 <input
-                                    type="number"
-                                    name="rating"
-                                    value={feedback.rating}
+                                    type="text"
+                                    name="applicantName"
+                                    value={feedback.applicantName}
                                     onChange={handleChange}
                                     className="form-control"
-                                    min="1"
-                                    max="5" // Update to 5 stars
                                     required
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="review">Review:</label>
-                                <textarea
-                                    name="review"
-                                    value={feedback.review}
+                                <label htmlFor="batchNumber">Batch Number:</label>
+                                <input
+                                    type="text"
+                                    name="batchNumber"
+                                    value={feedback.batchNumber}
                                     onChange={handleChange}
                                     className="form-control"
-                                    rows="4"
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="projectName">Project Name:</label>
+                                <input
+                                    type="text"
+                                    name="projectName"
+                                    value={feedback.projectName}
+                                    onChange={handleChange}
+                                    className="form-control"
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="satisfaction">How satisfied are you with the training program?</label><br />
+                                <input
+                                    type="radio"
+                                    name="satisfaction"
+                                    value="Very Satisfied"
+                                    onChange={handleChange}
+                                    required
+                                /> Very Satisfied
+                                <input
+                                    type="radio"
+                                    name="satisfaction"
+                                    value="Satisfied"
+                                    onChange={handleChange}
+                                /> Satisfied
+                                <input
+                                    type="radio"
+                                    name="satisfaction"
+                                    value="Neutral"
+                                    onChange={handleChange}
+                                /> Neutral
+                                <input
+                                    type="radio"
+                                    name="satisfaction"
+                                    value="Dissatisfied"
+                                    onChange={handleChange}
+                                /> Dissatisfied
+                            </div>
+                            <div className="form-group">
+                                <label>What could be improved?</label>
+                                <input
+                                    type="checkbox"
+                                    name="improvement"
+                                    value="Course"
+                                    onChange={handleChange}
+                                /> Course
+                                <input
+                                    type="checkbox"
+                                    name="improvement"
+                                    value="Content"
+                                    onChange={handleChange}
+                                /> Content
+                                <input
+                                    type="checkbox"
+                                    name="improvement"
+                                    value="Instructor"
+                                    onChange={handleChange}
+                                /> Instructor
+                                <input
+                                    type="checkbox"
+                                    name="improvement"
+                                    value="Facilities"
+                                    onChange={handleChange}
+                                /> Facilities
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="suggestions">Any suggestions for improving the Internship?</label>
+                                <textarea
+                                    name="suggestions"
+                                    value={feedback.suggestions}
+                                    onChange={handleChange}
+                                    className="form-control"
+                                    rows="2"
                                     required
                                 ></textarea>
                             </div>

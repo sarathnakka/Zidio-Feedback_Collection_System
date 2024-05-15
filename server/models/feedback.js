@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
 const FeedbackSchema = new mongoose.Schema({
-    teacherName: String,
-    rating: Number,
-    review: String
+    applicantName: String,
+    batchNumber: String,
+    projectName: String,
+    satisfaction: String,
+    improvement: [String],
+    suggestions: String
 });
 
 const FeedbackModel = mongoose.model("feedback", FeedbackSchema);

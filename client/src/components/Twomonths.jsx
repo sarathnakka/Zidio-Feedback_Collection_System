@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './Teacher.css';
+import './Twomonths.css';
 
-function Teacher() {
+function Twomonths() {
   const [feedback, setFeedback] = useState({
     applicantName: '', 
     batchNumber: '',
@@ -36,7 +36,7 @@ function Teacher() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:3001/submit-teacher-feedback', feedback)
+    axios.post('http://localhost:3001/submit-twomonths-feedback', feedback)
       .then(response => {
         console.log(response.data);
         setFeedback({
@@ -172,4 +172,4 @@ function Teacher() {
   );
 }
 
-export default Teacher;
+export default Twomonths;

@@ -1,11 +1,9 @@
-
 .home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    
     text-align: center;
   }
   
@@ -13,19 +11,17 @@
     background-color: #d8e4eb;
     padding: 20px;
     border-radius: 8px;
-    margin-top: 60px;
+    margin-top: 20px;
     width: 600px; 
     height: 600px;
   }
   
   .form-group {
-    margin-bottom: 15px;
-   
+    margin-bottom: 20px;
   }
   
   .form-control {
     width: 100%;
-
   }
   
   .btn-primary {
@@ -72,3 +68,4 @@
   .checkbox-label {
     margin-bottom: 10px;
   }
+  

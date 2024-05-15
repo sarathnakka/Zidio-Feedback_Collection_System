@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Student from './components/Student'
 import Teacher from './components/Teacher'
 import Admin from './components/Admin'
+import Twomonths from './components/Twomonths'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/options" element={<Options />}></Route>
         <Route path="/Student" element={<Student />}></Route>
         <Route path="/Teacher" element={<Teacher />}></Route>
+        <Route path="/Twomonths" element={<Twomonths/>}></Route>
       </Routes>
     </BrowserRouter>
   )

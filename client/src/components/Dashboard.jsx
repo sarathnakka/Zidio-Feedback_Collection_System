@@ -6,7 +6,7 @@ function Dashboard() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [category, setCategory] = useState('users'); 
+  const [category, setCategory] = useState('feedbacks'); 
 
   const fetchData = async (category) => {
     setLoading(true);
@@ -14,7 +14,7 @@ function Dashboard() {
       const response = await axios.get(`http://localhost:3001/${category}`);
       setData(response.data);
       setLoading(false);
-      setCategory(category); 
+      setCategory(category);
     } catch (error) {
       setError(error.message);
       setLoading(false);
@@ -22,7 +22,7 @@ function Dashboard() {
   };
 
   useEffect(() => {
-    fetchData('users');
+    fetchData('feedbacks'); 
   }, []);
 
   return (
@@ -30,8 +30,8 @@ function Dashboard() {
       <div className="sidebar">
         <ul>
           <li onClick={() => fetchData('users')}>Users</li>
-          <li onClick={() => fetchData('feedbacks')}>Feedbacks</li>
-          <li onClick={() => fetchData('teacher-feedbacks')}>Teacher Feedbacks</li>
+          <li onClick={() => fetchData('feedbacks')}>One Month Team</li>
+          <li onClick={() => fetchData('teacher-feedbacks')}>Three Month's Team</li>
         </ul>
       </div>
       <div className="content">
@@ -46,19 +46,25 @@ function Dashboard() {
           <ul>
             {data.map((item, index) => (
               <li key={index}>
-              
+                {/* Updated content based on the selected category */}
                 {category === 'feedbacks' ? (
                   <>
-                    <div>Teacher Name: {item.teacherName}</div>
-                    <div>Rating: {item.rating}</div>
-                    <div>Review: {item.review}</div>
+                    <div>Applicant Name: {item.applicantName}</div>
+                    <div>Batch Number: {item.batchNumber}</div>
+                    <div>Project Name: {item.projectName}</div>
+                    <div>Satisfaction: {item.satisfaction}</div>
+                    <div>Improvement: {item.improvement.join(', ')}</div>
+                    <div>Suggestions: {item.suggestions}</div>
                   </>
                 ) : category === 'teacher-feedbacks' ? (
                   <>
-                    <div>Student Name: {item.studentName}</div>
-                    <div>Section: {item.section}</div>
-                    <div>Review: {item.review}</div>
-                  </>
+    <div>Applicant Name: {item.applicantName}</div>
+    <div>Batch Number: {item.batchNumber}</div>
+    <div>Project Name: {item.projectName}</div>
+    <div>Satisfaction: {item.satisfaction}</div>
+    <div>Improvement: {item.improvement.join(', ')}</div>
+    <div>Suggestions: {item.suggestions}</div>
+  </>
                 ) : (
                   <>
                     <div>ID: {item._id}</div>

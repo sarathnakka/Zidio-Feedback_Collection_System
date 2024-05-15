@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 
 const teacherFeedbackSchema = new mongoose.Schema({
-  studentName: String,
-  section: String,
-//   rating: Number,
-  review: String
+  applicantName: String,
+  batchNumber: String,
+  projectName: String,
+  satisfaction: String,
+  improvement: [String],
+  suggestions: String
 });
 
 const TeacherFeedbackModel = mongoose.model('TeacherFeedback', teacherFeedbackSchema);

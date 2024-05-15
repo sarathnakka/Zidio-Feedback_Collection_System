@@ -8,6 +8,7 @@ const UserModel = require('./models/User')
 const FeedbackModel = require('./models/feedback');
 const TeacherFeedbackModel = require('./models/teacherFeedback');
 
+
 const app = express()
 app.use(express.json())
 app.use(cors({
@@ -74,33 +75,59 @@ app.post('/login', (req, res) => {
 })
 
 app.post('/submit-feedback', (req, res) => {
-    const { teacherName, rating, review } = req.body;
-    
-    const newFeedback = new FeedbackModel({
-        teacherName,
-        rating,
-        review
-    });
-    
-    newFeedback.save()
-        .then(() => res.status(200).json({ message: 'Feedback submitted successfully' }))
-        .catch(err => res.status(500).json({ error: err.message }));
+  const { applicantName, batchNumber, projectName, satisfaction, improvement, suggestions } = req.body;
+  
+  const newFeedback = new FeedbackModel({
+      applicantName,
+      batchNumber,
+      projectName,
+      satisfaction,
+      improvement,
+      suggestions
+  });
+  
+  newFeedback.save()
+      .then(() => res.status(200).json({ message: 'Feedback submitted successfully' }))
+      .catch(err => res.status(500).json({ error: err.message }));
 });
 
 
 app.post('/submit-teacher-feedback', (req, res) => {
-    const { studentName, section, rating, review } = req.body;
+  const { applicantName, batchNumber, projectName, satisfaction, improvement, suggestions } = req.body;
   
-    const newTeacherFeedback = new TeacherFeedbackModel({
-      studentName,
-      section,
-      review
-    });
-  
-    newTeacherFeedback.save()
-      .then(() => res.status(200).json({ message: 'Teacher feedback submitted successfully' }))
-      .catch(err => res.status(500).json({ error: err.message }));
+  const newTeacherFeedback = new TeacherFeedbackModel({
+    applicantName,
+    batchNumber,
+    projectName,
+    satisfaction,
+    improvement,
+    suggestions
   });
+
+  newTeacherFeedback.save()
+    .then(() => res.status(200).json({ message: 'Teacher feedback submitted successfully' }))
+    .catch(err => res.status(500).json({ error: err.message }));
+});
+
+app.post('/submit-twomonths-feedback', (req, res) => {
+  const { applicantName, batchNumber, projectName, satisfaction, improvement, suggestions } = req.body;
+  
+  const newFeedback = new TwoMonthsFeedback({
+    applicantName,
+    batchNumber,
+    projectName,
+    satisfaction,
+    improvement,
+    suggestions
+  });
+  
+  newFeedback.save()
+    .then(() => res.status(200).json({ message: 'Two months feedback submitted successfully' }))
+    .catch(err => res.status(500).json({ error: err.message }));
+});
+  
+
+
 
 app.get('/users',  async (req, res) => {
   try {
@@ -128,6 +155,9 @@ app.get('/teacher-feedbacks',  async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+
+
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
