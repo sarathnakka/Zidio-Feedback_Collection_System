@@ -23,11 +23,13 @@ function Login() {
             <div className="left-section">
             <img src={web} className="img-fluid animated" alt="home img"/>
             </div>
-            <div className="right-section">
+            <div className="right-section">    
            
+
                 <div className="login-form">
                 
-                    <h2>Signin </h2>
+                    <h2>Login</h2>
+                    <hr />
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
@@ -53,7 +55,7 @@ function Login() {
                             />
                         </div>
                         <button type="submit" className="btn btn-success">
-                            Signin
+                            Login
                         </button>
                     </form>
                     <p>Don't have an account? <Link to="/register" className="link">Sign Up</Link></p>
