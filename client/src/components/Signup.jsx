@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../components/Signup.css'; 
-// import web from "../src/assets/love.gif";
+import web from "../../src/images/love.gif";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+
+
 
 function Signup() {
     const [name, setName] = useState("");
@@ -22,21 +27,25 @@ function Signup() {
     return (
         <div className="signup-container">
             <div className="left-section">
-                
+            <img src={web} className="img-fluid animated" alt="home img"/>
 
                 
-                {/* we can use CSS or SVG for the abstract background */}
+          
             </div>
             <div className="right-section">
+            <div className="right-section-corner">
+            <Link to="/" className="btn btn-outline-primary">
+            <FontAwesomeIcon icon={faHome} /> Home
+        </Link></div>
                 <div className="signup-form">
                     <h2>Create your Account</h2>
                     
                     <div className="social-login">
                     <button className="btn btn-google">
-                      <i className="fab fa-google"></i> Sign in with Google
+                        <FontAwesomeIcon icon={faGoogle} /> Sign in with Google
                     </button>
                     <button className="btn btn-facebook">
-                      <i className="fab fa-facebook"></i> Sign in with Facebook
+                        <FontAwesomeIcon icon={faFacebook} /> Sign in with Facebook
                     </button>
                   </div>
                     
@@ -79,10 +88,8 @@ function Signup() {
                             Signup
                         </button>
                     </form>
-                    <p>Already Have an Account?</p>
-                    <Link to="/login" className="btn btn-outline-primary "> Signin
-                       
-                    </Link>
+                    <p>Already Have an Account?
+                    <Link to="/login" className="link "> Signin </Link> </p>
                 </div>
             </div>
         </div>

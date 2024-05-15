@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css'; 
+import web from "../../src/images/love.gif";
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -20,12 +21,12 @@ function Login() {
     return (
         <div className="login-container">
             <div className="left-section">
-                <h2>Login animations should be placed here</h2>
-                {/* We can Add colorful abstract background design here */}
-                {/* we can use CSS or SVG for the abstract background */}
+            <img src={web} className="img-fluid animated" alt="home img"/>
             </div>
             <div className="right-section">
+           
                 <div className="login-form">
+                
                     <h2>Signin </h2>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">

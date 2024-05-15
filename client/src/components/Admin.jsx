@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import './Admin.css';
-
+import weeb from "../../src/images/Busy.gif";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 function Admin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -19,11 +22,13 @@ function Admin() {
   return (
     <div className="login-container">
     <div className="left-section">
-        <h2>Admin animations should be placed here</h2>
-        {/* We can Add colorful abstract background design here */}
-        {/* we can use CSS or SVG for the abstract background */}
+    <img src={weeb} className="img-fluid animated" alt="home img"/>
     </div>
     <div className="right-section">
+    <div className="right-section-corner">
+            <Link to="/" className="btn btn-outline-primary">
+            <FontAwesomeIcon icon={faHome} /> Home
+        </Link></div>
         <div className="login-form">
             <h2>Admin login</h2>
             <form onSubmit={handleSubmit}>

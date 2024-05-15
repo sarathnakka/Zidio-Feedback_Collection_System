@@ -87,6 +87,7 @@ app.post('/submit-feedback', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
+
 app.post('/submit-teacher-feedback', (req, res) => {
     const { studentName, section, rating, review } = req.body;
   
