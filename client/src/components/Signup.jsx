@@ -41,10 +41,10 @@ function Signup() {
                     <h2>Create your Account</h2>
                     
                     <div className="social-login">
-                    <button className="btn btn-google">
+                    <button className="btn btn-outline-danger btn-google">
                         <FontAwesomeIcon icon={faGoogle} /> Sign in with Google
                     </button>
-                    <button className="btn btn-facebook">
+                    <button className="btn btn-outline-primary btn-facebook">
                         <FontAwesomeIcon icon={faFacebook} /> Sign in with Facebook
                     </button>
                   </div>
