@@ -8,7 +8,8 @@ const UserModel = require('./models/User')
 const FeedbackModel = require('./models/feedback');
 const TeacherFeedbackModel = require('./models/teacherFeedback');
 const TwoMonthsFeedbackModel = require('./models/TwoMonthsFeedback');
-
+// const passport = require('passport');
+// const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const app = express()
 app.use(express.json())
@@ -144,7 +145,25 @@ app.post('/submit-twomonths-feedback', (req, res) => {
     .catch(err => res.status(500).json({ error: err.message }));
 });
   
+// app.get('/auth/google',
+//   passport.authenticate('google', { scope: ['profile', 'email'] }));
 
+//   passport.use(new GoogleStrategy({
+//     clientID: GOOGLE_CLIENT_ID,
+//     clientSecret: GOOGLE_CLIENT_SECRET,
+//     callbackURL: "http://localhost:3001/auth/google/callback"
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+   
+//     return done(null, profile);
+//   }
+// ));
+
+// app.get('/auth/google/callback', 
+//   passport.authenticate('google', { failureRedirect: '/login' }),
+//   function(req, res) {
+//     res.redirect('/signup');
+//   });
 
 
 app.get('/users',  async (req, res) => {
@@ -155,6 +174,17 @@ app.get('/users',  async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+app.get('/user-feedback/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const userFeedback = await FeedbackModel.find({ userId: userId });
+    res.json(userFeedback);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 app.get('/feedbacks',  async (req, res) => {
   try {

@@ -34,13 +34,17 @@ body {
   }
   
   .student-card {
-    background-color: #e0f7fa; 
+    background-color: #d4d9da; 
   }
   
   .teacher-card {
     background-color: #fff9c4; 
   }
   
+  .twomonth-card {
+    background-color: #d7eadc; 
+  }
+
   .btn {
     margin-top: 10px;
   }

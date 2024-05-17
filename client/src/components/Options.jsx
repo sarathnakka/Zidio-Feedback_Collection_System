@@ -14,7 +14,7 @@ function Options() {
               Feedback Form
             </Link>
           </div>
-          <div className="role-card student-card">
+          <div className="role-card twomonth-card">
           <h3>Two Month's Team</h3>
           <Link to="/Twomonths" className="btn btn-primary">
             Feedback Form
