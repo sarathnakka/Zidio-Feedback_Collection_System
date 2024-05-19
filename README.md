@@ -4,7 +4,7 @@ A feedback website created with React, Express.js, and MongoDB! Here, users can 
 
 
 ![image](https://github.com/sarathnakka/Zidio-Feedback_Collection_System/assets/101663778/9bc6de22-e6b4-45ff-8ecc-5f5e81636c5c)
-![image](https://github.com/sarathnakka/Zidio-Feedback_Collection_System/assets/101663778/1ac86e8d-e234-44c0-aed6-eef1f6307e2a)
+![image](https://github.com/sarathnakka/Zidio-Feedback_Collection_System/assets/101663778/a31aae1a-3050-4f0b-8298-d68acf09862e)
 ![Screenshot (111)](https://github.com/sarathnakka/Zidio-Feedback_Collection_System/assets/101663778/caffe122-da0b-48e3-a846-2e47789feab0)
 ![Screenshot (112)](https://github.com/sarathnakka/Zidio-Feedback_Collection_System/assets/101663778/f9d2b747-c468-4be6-9e7b-c8f31ce2b1f1)
 ![image](https://github.com/sarathnakka/Zidio-Feedback_Collection_System/assets/101663778/7eb9f791-3bfd-47e7-b7de-e83e2216ce52)
